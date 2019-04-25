@@ -26,8 +26,20 @@
 // When done, make sure you're working on a forked repo, push your
 // changes to your forked repo and submit a pull request.
 
-function maxAndMin (parens) {
-  // your code here. Enjoy the music.
+function maxAndMin (A, B) {
+  if (!Array.isArray(B)) return 'Please enter two arrays.'
+  let max = 0;
+  let min = Infinity;
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] < 0) return 'Please enter positive integers only.';
+    for (let j = 0; j < B.length; j++) {
+      if (B[i] < 0) return 'Please enter positive integers only.';
+      let diff = Math.abs(A[i] - B[j]);
+      if (diff > max) max = diff;
+      if (diff < min) min = diff; 
+    }
+  }
+  return [max, min];
 }
 
 module.exports = maxAndMin;
